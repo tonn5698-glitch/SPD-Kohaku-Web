@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copyright & Third-Party Content</title>
+<style>
+  :root{
+    --bg: #f7f7f5;
+    --panel: #ffffff;
+    --ink: #1c1d1f;
+    --ink-soft: #55575c;
+    --line: #e3e3e0;
+    --accent: #2c5f4f;
+    --accent-soft: #e8f0ed;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+  }
+  .layout{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  nav.toc{
+    position:sticky;
+    top:0;
+    align-self:start;
+    height:100vh;
+    overflow-y:auto;
+    padding:40px 20px 40px 0;
+    border-right:1px solid var(--line);
+  }
+  nav.toc .toc-title{
+    font-size:12px;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    margin:0 0 14px 4px;
+  }
+  nav.toc ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  nav.toc a{
+    display:block;
+    padding:6px 8px;
+    border-radius:6px;
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-size:14px;
+  }
+  nav.toc a:hover{ background:var(--accent-soft); color:var(--accent); }
+  nav.toc li.sub a{
+    font-size:13px;
+    padding-left:20px;
+    color:#8a8c90;
+  }
+  main{
+    padding:56px 48px 120px 48px;
+    max-width:760px;
+  }
+  header.page-head{
+    margin-bottom:48px;
+    padding-bottom:24px;
+    border-bottom:1px solid var(--line);
+  }
+  header.page-head h1{
+    font-size:32px;
+    margin:0 0 8px 0;
+    letter-spacing:-0.01em;
+  }
+  header.page-head p{
+    color:var(--ink-soft);
+    margin:0;
+    font-size:15px;
+  }
+  section{
+    margin-bottom:56px;
+    scroll-margin-top:24px;
+  }
+  section h2{
+    font-size:22px;
+    margin:0 0 16px 0;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  section h3{
+    font-size:17px;
+    margin:28px 0 10px 0;
+    color:var(--accent);
+  }
+  section h4{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    margin:16px 0 4px 0;
+  }
+  p{ margin:0 0 12px 0; }
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px 24px;
+    margin-bottom:20px;
+  }
+  .license-row{
+    display:flex;
+    gap:8px;
+    align-items:baseline;
+    font-size:14px;
+    margin:4px 0;
+  }
+  .license-row .label{
+    color:var(--ink-soft);
+    min-width:110px;
+  }
+  code{
+    font-family:var(--mono);
+    background:var(--accent-soft);
+    padding:2px 6px;
+    border-radius:4px;
+    font-size:0.9em;
+  }
+  a.ext{ color:var(--accent); }
+  ul.plain{ padding-left:20px; margin:8px 0; }
+  footer{
+    padding:24px 48px;
+    color:var(--ink-soft);
+    font-size:13px;
+    max-width:760px;
+    margin-left:260px;
+  }
+  @media (max-width:860px){
+    .layout{ grid-template-columns:1fr; }
+    nav.toc{ position:static; height:auto; border-right:none; border-bottom:1px solid var(--line); padding:24px; }
+    main{ padding:32px 24px 80px 24px; }
+    footer{ margin-left:0; padding:24px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <nav class="toc">
+    <p class="toc-title">CONTENTS</p>
+    <ul>
+      <li><a href="#about">1. About this page</a></li>
+      <li><a href="#spd">2. Shattered Pixel Dungeon</a></li>
+      <li><a href="#third-party">3. Third-Party Characters</a></li>
+      <li class="sub"><a href="#kohaku">Kohaku</a></li>
+      <li><a href="#original">4. Original Characters</a></li>
+      <li><a href="#audio">5. Music / Sound</a></li>
+      <li><a href="#libraries">6. Third-Party Libraries</a></li>
+      <li><a href="#trademarks">7. Trademarks</a></li>
+      <li><a href="#source">8. Source Code</a></li>
+      <li><a href="#contact">9. Contact / Copyright Concerns</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="page-head">
+      <h1>Copyright & Third-Party Content</h1>
+      <p>Attribution, licensing, and permission status for all content used in SPD-Kohaku.</p>
+    </header>
+
+    <section id="about">
+      <h2>1. About this page</h2>
+      <p>SPD-Kohaku is a fan-made mod built on top of <em>Shattered Pixel Dungeon</em>. It features the custom character <strong>Kohaku</strong> as the only playable hero, with a 4-direction sprite system and RPG Maker-style dialog. This page exists to keep attribution clear: what belongs to whom, under what license, and what permission status each piece has.</p>
+      <p>If you are a rights holder and believe something here is used incorrectly, see <a href="#contact">Contact</a> below.</p>
+    </section>
+
+    <section id="spd">
+      <h2>2. Shattered Pixel Dungeon</h2>
+      <div class="card">
+        <h4>Original Game</h4>
+        <p>This mod is built on <a class="ext" href="https://github.com/00-Evan/shattered-pixel-dungeon" target="_blank" rel="noopener">Shattered Pixel Dungeon</a> by Evan Debenham, itself derived from Pixel Dungeon by Watabou (Oleg Dolya).</p>
+        <div class="license-row"><span class="label">Pixel Dungeon</span><code>GPL-3.0</code> &copy; 2012-2015 Oleg Dolya</div>
+        <div class="license-row"><span class="label">Shattered PD</span><code>GPL-3.0</code> &copy; 2014-2026 Evan Debenham</div>
+        <div class="license-row"><span class="label">Assets</span><code>CC BY-SA 4.0</code></div>
+        <p>Modified source code in this project is distributed under the same GPLv3 terms as required by the original license.</p>
+      </div>
+    </section>
+
+    <section id="third-party">
+      <h2>3. Third-Party Characters</h2>
+      <p>Characters below are not original creations of Shattered Pixel Dungeon. Each entry lists the original creator, what was sourced, and the permission status.</p>
+
+      <div class="card" id="kohaku">
+        <h3>Kohaku</h3>
+        <div class="license-row"><span class="label">Original creator</span><span>BAYACHAO</span></div>
+        <h4>Original Work</h4>
+        <p><a class="ext" href="https://www.deviantart.com/bayachao" target="_blank" rel="noopener">BAYACHAO on DeviantArt</a> &mdash; character design, sprite reference, and name for Kohaku.</p>
+        <h4>What We Use</h4>
+        <p>Character design (appearance, outfit, hair), name "Kohaku", and facial expressions adapted as RPG Maker-style 96&times;96 sprite sheets and dialog face portraits for this mod.</p>
+        <h4>Permission / License Status</h4>
+        <p>Used with written permission from BAYACHAO. This project is temporarily closed for copyright safety review until all third-party content is fully verified.</p>
+      </div>
+    </section>
+
+    <section id="original">
+      <h2>4. Original Characters</h2>
+      <p>The following hero classes are from the original Shattered Pixel Dungeon and are <strong>not playable</strong> in this mod (locked):</p>
+      <ul class="plain">
+        <li><strong>Warrior</strong> &mdash; Berserker / Gladiator subclasses</li>
+        <li><strong>Mage</strong> &mdash; Battlemage / Warlock subclasses</li>
+        <li><strong>Rogue</strong> &mdash; Assassin / Freerunner subclasses</li>
+        <li><strong>Huntress</strong> &mdash; Sniper / Warden subclasses</li>
+        <li><strong>Cleric</strong> &mdash; Priest / Paladin subclasses</li>
+      </ul>
+      <p>Only the <strong>Duelist</strong> (replaced by Kohaku) is playable.</p>
+    </section>
+
+    <section id="audio">
+      <h2>5. Music / Sound</h2>
+      <div class="card">
+        <div class="license-row"><span class="label">Music</span><span>31 tracks (.ogg / .mp3)</span></div>
+        <div class="license-row"><span class="label">SFX</span><span>67 sound effects (.mp3)</span></div>
+        <div class="license-row"><span class="label">Creator</span><span>Evan Debenham (Shattered Pixel Dungeon)</span></div>
+        <div class="license-row"><span class="label">License</span><code>GPL-3.0</code> (code) / <code>CC BY-SA 4.0</code> (assets)</div>
+        <div class="license-row"><span class="label">Source</span><a class="ext" href="https://github.com/00-Evan/shattered-pixel-dungeon" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+      <p>All music and sound effects are from the original Shattered Pixel Dungeon. No additional third-party audio is used in this mod.</p>
+    </section>
+
+    <section id="libraries">
+      <h2>6. Third-Party Libraries</h2>
+      <div class="card">
+        <div class="license-row"><span class="label">libGDX</span><code>Apache 2.0</code></div>
+        <div class="license-row"><span class="label">libGDX Controllers</span><code>Apache 2.0</code></div>
+        <div class="license-row"><span class="label">libGDX FreeType</span><code>Apache 2.0</code></div>
+        <div class="license-row"><span class="label">org.json:json</span><code>JSON License</code></div>
+        <div class="license-row"><span class="label">LWJGL tinyFD</span><code>BSD-3-Clause</code></div>
+        <div class="license-row"><span class="label">RoboVM</span><code>MIT</code></div>
+      </div>
+    </section>
+
+    <section id="trademarks">
+      <h2>7. Trademarks</h2>
+      <p><em>Shattered Pixel Dungeon</em> and any related names, marks, or logos belong to their respective owners. The name "Kohaku" and related character trademarks belong to BAYACHAO. This project is not affiliated with or endorsed by those rights holders unless explicitly stated above.</p>
+    </section>
+
+    <section id="source">
+      <h2>8. Source Code</h2>
+      <p>Source code for this project: <a class="ext" href="https://github.com/tonn5698-glitch/SPD-Kohaku" target="_blank" rel="noopener">tonn5698-glitch/SPD-Kohaku</a></p>
+      <p>Licensed under <code>GPLv3</code>, consistent with the upstream Shattered Pixel Dungeon license.</p>
+    </section>
+
+    <section id="contact">
+      <h2>9. Contact / Copyright Concerns</h2>
+      <p>If you are a creator or rights holder and want content credited, corrected, or removed, contact:</p>
+      <p><strong>Ton</strong> &mdash; <a class="ext" href="https://github.com/tonn5698-glitch" target="_blank" rel="noopener">GitHub: tonn5698-glitch</a></p>
+    </section>
+  </main>
+</div>
+
+<footer>
+  Last updated: September 2026
+</footer>
+</body>
+</html>
