@@ -47,7 +47,7 @@ See [copyright.html](copyright.html) for full attribution and licensing details.
 
 - **Shattered Pixel Dungeon** by [Evan Debenham](https://github.com/00-Evan/shattered-pixel-dungeon) &mdash; GPL-3.0
 - **Pixel Dungeon** by [Watabou](https://watabou.itch.io/) &mdash; GPL-3.0
-- **Kohaku** character by [BAYACHAO](https://www.deviantart.com/bayachao) &mdash; Used with permission
+- **Kohaku** character by [BAYACHAO](https://bayachao.com/#/) &mdash; Used with permission
 - **libGDX** &mdash; Apache 2.0
 
 ## Contact
