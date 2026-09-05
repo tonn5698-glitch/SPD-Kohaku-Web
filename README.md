@@ -2,6 +2,8 @@
 
 A fan-made mod of [Shattered Pixel Dungeon](https://shatteredpixel.com/shatteredpd/) featuring **Kohaku** as the only playable hero.
 
+> **Website**: [tonn5698-glitch.github.io/SPD-Kohaku-Web](https://tonn5698-glitch.github.io/SPD-Kohaku-Web/)
+
 ## About
 
 SPD-Kohaku replaces the standard Duelist class with **Kohaku**, a custom character with a complete 4-direction sprite system and RPG Maker-style dialog portraits. The mod locks all other hero classes, making Kohaku the sole playable character.
