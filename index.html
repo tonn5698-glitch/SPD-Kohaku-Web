@@ -3,172 +3,334 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SPD-Kohaku — Đã lưu trữ</title>
+<title>SPD-Kohaku — Shattered Pixel Dungeon +</title>
 <style>
   :root{
-    --bg: #16181c;
-    --panel: #1f2228;
+    --bg: #0f1114;
+    --bg2: #16181c;
+    --panel: #1c1f26;
     --line: #2c3038;
     --ink: #e8e9ec;
     --ink-soft: #9aa0ab;
-    --warn: #e04040;
-    --warn-bg: rgba(224,64,64,0.12);
-    --accent: #4a9e7a;
-    --accent-bg: rgba(74,158,122,0.12);
+    --accent: #5ba67d;
+    --accent-hover: #6dbd8f;
+    --accent-bg: rgba(91,166,125,0.12);
+    --red: #e04040;
+    --red-bg: rgba(224,64,64,0.1);
+    --gold: #e0a940;
+    --gold-bg: rgba(224,169,64,0.1);
+    --font: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   }
-  *{ box-sizing:border-box; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
   body{
-    margin:0;
-    min-height:100vh;
     background:var(--bg);
     color:var(--ink);
-    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:32px;
+    font-family:var(--font);
+    line-height:1.6;
   }
-  .card{
-    width:100%;
-    max-width:520px;
+  a{ color:var(--accent); text-decoration:none; }
+  a:hover{ color:var(--accent-hover); }
+
+  /* NAV */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(15,17,20,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+    padding:0 32px;
+    height:56px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-brand{
+    font-weight:700; font-size:16px; color:var(--ink);
+    display:flex; align-items:center; gap:10px;
+  }
+  .nav-brand img{ width:28px; height:28px; border-radius:6px; }
+  .nav-links{ display:flex; gap:24px; }
+  .nav-links a{
+    color:var(--ink-soft); font-size:14px; font-weight:500;
+    transition:color 0.2s;
+  }
+  .nav-links a:hover{ color:var(--ink); }
+
+  /* HERO */
+  .hero{
+    padding:140px 32px 80px;
+    text-align:center;
+    background:linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+  }
+  .hero-art{
+    width:180px; height:180px;
+    margin:0 auto 32px;
+    border-radius:20px;
+    overflow:hidden;
+    border:2px solid var(--line);
+    background:var(--panel);
+  }
+  .hero-art img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .hero h1{
+    font-size:48px; font-weight:800;
+    letter-spacing:-0.03em;
+    margin:0 0 8px;
+    background:linear-gradient(135deg, var(--ink) 0%, var(--accent) 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  .hero .tagline{
+    font-size:18px; color:var(--ink-soft); margin:0 0 32px;
+  }
+  .hero-btns{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 28px; border-radius:10px;
+    font-size:15px; font-weight:600; cursor:pointer;
+    border:none; transition:all 0.2s;
+  }
+  .btn-primary{
+    background:var(--accent); color:#fff;
+  }
+  .btn-primary:hover{ background:var(--accent-hover); color:#fff; }
+  .btn-outline{
+    background:transparent; color:var(--ink);
+    border:1px solid var(--line);
+  }
+  .btn-outline:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* WARNING */
+  .warning{
+    max-width:720px; margin:0 auto; padding:0 32px;
+  }
+  .warning-box{
+    background:var(--red-bg);
+    border:1px solid rgba(224,64,64,0.3);
+    border-radius:12px;
+    padding:16px 20px;
+    display:flex; align-items:start; gap:12px;
+    font-size:13px; color:var(--ink-soft); line-height:1.6;
+  }
+  .warning-box strong{ color:var(--red); }
+
+  /* SECTIONS */
+  section{
+    max-width:960px; margin:0 auto; padding:80px 32px;
+  }
+  section h2{
+    font-size:28px; font-weight:700; margin:0 0 32px;
+    letter-spacing:-0.02em;
+  }
+  .section-label{
+    font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--accent); font-weight:600; margin-bottom:8px;
+  }
+
+  /* FEATURES */
+  .features-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:16px;
+  }
+  .feature-card{
     background:var(--panel);
     border:1px solid var(--line);
-    border-radius:14px;
-    padding:36px 32px;
-    text-align:center;
-  }
-  h1{
-    font-size:24px;
-    margin:0 0 8px 0;
-    letter-spacing:-0.01em;
-  }
-  .subtitle{
-    color:var(--ink-soft);
-    font-size:14px;
-    margin:0 0 24px 0;
-  }
-  .art{
-    width:140px;
-    height:140px;
-    margin:0 auto 20px auto;
     border-radius:12px;
-    overflow:hidden;
+    padding:24px;
+  }
+  .feature-card .icon{ font-size:28px; margin-bottom:12px; }
+  .feature-card h3{ font-size:16px; margin:0 0 8px; }
+  .feature-card p{ font-size:14px; color:var(--ink-soft); margin:0; }
+
+  /* DOWNLOAD */
+  .download-card{
+    background:var(--panel);
     border:1px solid var(--line);
-    background:#0f1114;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    border-radius:16px;
+    padding:32px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
   }
-  .art-placeholder{
-    font-size:48px;
-    opacity:0.6;
+  .download-info h3{ font-size:20px; margin:0 0 4px; }
+  .download-info p{ font-size:14px; color:var(--ink-soft); margin:0; }
+  .download-meta{
+    display:flex; gap:16px; margin-top:8px;
   }
-  .badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:var(--warn-bg);
-    color:var(--warn);
-    border:1px solid rgba(224,169,64,0.35);
-    border-radius:999px;
-    padding:6px 16px;
-    font-size:13px;
-    margin-bottom:20px;
-  }
-  .dot{
-    width:7px; height:7px; border-radius:50%;
-    background:var(--warn);
-  }
-  .links{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    margin:20px 0;
-  }
-  .link-btn{
-    display:block;
-    padding:12px 20px;
-    background:var(--bg);
+  .download-meta span{
+    font-size:12px; color:var(--ink-soft);
+    background:var(--bg); padding:4px 10px; border-radius:6px;
     border:1px solid var(--line);
-    border-radius:8px;
-    color:var(--ink);
-    text-decoration:none;
-    font-size:14px;
-    transition:border-color 0.2s;
   }
-  .link-btn:hover{
-    border-color:var(--accent);
+
+  /* CHANGELOG */
+  .changelog{ list-style:none; padding:0; margin:0; }
+  .changelog li{
+    position:relative;
+    padding:0 0 32px 28px;
+    border-left:2px solid var(--line);
   }
-  .link-btn span{
-    color:var(--ink-soft);
-    font-size:12px;
+  .changelog li:last-child{ border-left:none; padding-bottom:0; }
+  .changelog li::before{
+    content:"";
+    position:absolute; left:-7px; top:4px;
+    width:12px; height:12px; border-radius:50%;
+    background:var(--accent); border:2px solid var(--bg);
   }
-  p.note{
-    font-size:13px;
-    color:var(--ink-soft);
-    line-height:1.65;
-    text-align:left;
-    margin:24px 0 0 0;
-    padding-top:20px;
+  .changelog .version{
+    font-size:13px; font-weight:600; color:var(--accent);
+    margin-bottom:4px;
+  }
+  .changelog .date{ font-size:12px; color:var(--ink-soft); margin-left:8px; }
+  .changelog h4{ font-size:15px; margin:0 0 6px; }
+  .changelog ul{ padding-left:16px; margin:4px 0 0; }
+  .changelog li li{ border:none; padding:2px 0; font-size:14px; color:var(--ink-soft); }
+
+  /* FOOTER */
+  footer{
     border-top:1px solid var(--line);
+    padding:32px;
+    text-align:center;
+    font-size:13px; color:var(--ink-soft);
   }
-  .features{
-    text-align:left;
-    margin:16px 0;
-    padding:16px;
-    background:var(--bg);
-    border-radius:8px;
-    border:1px solid var(--line);
-  }
-  .features h3{
-    font-size:13px;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    color:var(--ink-soft);
-    margin:0 0 12px 0;
-  }
-  .features ul{
-    margin:0;
-    padding-left:16px;
-    font-size:13px;
-    color:var(--ink-soft);
-    line-height:1.8;
+  footer a{ color:var(--ink-soft); }
+  footer a:hover{ color:var(--accent); }
+
+  @media(max-width:640px){
+    .hero h1{ font-size:32px; }
+    .download-card{ flex-direction:column; text-align:center; }
+    .nav-links{ gap:16px; }
+    .nav-links a{ font-size:13px; }
   }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="art">
-      <img src="./images/kohaku.png" alt="Kohaku">
-    </div>
 
-    <h1>SPD-Kohaku</h1>
-    <p class="subtitle">Shattered Pixel Dungeon — Kohaku Mod</p>
-
-    <div class="badge"><span class="dot"></span>Cảnh báo bản quyền — dự án có thể bị đóng cửa</div>
-
-    <div class="links">
-      <a href="https://github.com/tonn5698-glitch/SPD-Kohaku" class="link-btn" target="_blank" rel="noopener">
-        📦 Source Code <span>GPLv3 · GitHub</span>
-      </a>
-      <a href="./copyright.html" class="link-btn">
-        📄 Copyright & Licensing <span>Bản quyền & Giấy phép</span>
-      </a>
-    </div>
-
-    <div class="features">
-      <h3>Tính năng</h3>
-      <ul>
-        <li>Nhân vật Kohaku (© BAYACHAO) — chỉ chơi được Duelist</li>
-        <li>Hệ sprite 4 hướng (RPG Maker style)</li>
-        <li>Hoá thân Monini khi có buff tốc độ</li>
-        <li>Hệ dialog RPG với portrait</li>
-      </ul>
-    </div>
-
-    <p class="note">
-      Dự án fork từ <a href="https://github.com/00-Evan/shattered-pixel-dungeon" style="color:var(--accent)">Shattered Pixel Dungeon</a>, có sử dụng nhân vật Kohaku (© BAYACHAO). Dự án đang trong trạng thái cảnh báo: <strong>bất kì khiếu nại bản quyền nào</strong> sẽ dẫn đến việc dự án bị đóng cửa và xoá bỏ các nội dung liên quan. Nếu điều đó xảy ra, dự án sẽ đổi tên thành <strong>Shattered Pixel Dungeon +</strong>.
-    </p>
+<nav>
+  <div class="nav-brand">
+    <img src="./images/kohaku.png" alt="Kohaku">
+    SPD-Kohaku
   </div>
+  <div class="nav-links">
+    <a href="#features">Tính năng</a>
+    <a href="#download">Tải về</a>
+    <a href="#changelog">Cập nhật</a>
+    <a href="./copyright.html">Bản quyền</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-art">
+    <img src="./images/kohaku.png" alt="Kohaku">
+  </div>
+  <h1>SPD-Kohaku</h1>
+  <p class="tagline">Shattered Pixel Dungeon + — Mod Kohaku</p>
+  <div class="hero-btns">
+    <a href="#download" class="btn btn-primary">Tải về mới nhất</a>
+    <a href="https://github.com/tonn5698-glitch/SPD-Kohaku" class="btn btn-outline" target="_blank">Source Code</a>
+  </div>
+</header>
+
+<div class="warning">
+  <div class="warning-box">
+    <span>⚠️</span>
+    <span><strong>Cảnh báo bản quyền:</strong> Bất kì khiếu nại bản quyền nào sẽ dẫn đến việc dự án bị đóng cửa và xoá bỏ nội dung liên quan. Nếu điều đó xảy ra, dự án sẽ đổi tên thành <strong>Shattered Pixel Dungeon +</strong>.</span>
+  </div>
+</div>
+
+<section id="features">
+  <div class="section-label">Tính năng</div>
+  <h2>Kohaku mang đến gì mới?</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">🎮</div>
+      <h3>Hệ sprite 4 hướng</h3>
+      <p>RPG Maker style — DOWN, LEFT, RIGHT, UP. Hoàn toàn thay thế hệ flip ngang của game gốc.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">⚔️</div>
+      <h3>Hoá thân Monini</h3>
+      <p>Kohaku biến đổi thành Monini khi có buff tốc độ, với hiệu ứng transform mượt mà.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">💬</div>
+      <h3>Dialog RPG</h3>
+      <p>Hệ thống dialog visual-novel với portrait, hiệu ứng đánh chữ và nhiều trang tin nhắn.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🥤</div>
+      <h3>Animation tuỳ chỉnh</h3>
+      <p>Uống thuốc, ăn đồ, bị thương, chóng mặt — tất cả đều có animation riêng.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">⚡</div>
+      <h3>Tốc độ tuỳ chỉnh</h3>
+      <p>Chọn từ chậm đến nhanh, phù hợp với phong cách chơi của bạn.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔒</div>
+      <h3>Chỉ Duelist</h3>
+      <p>Toàn bộ các class khác bị khoá, Kohaku là nhân vật duy nhất bạn có thể chơi.</p>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="section-label">Tải về</div>
+  <h2>Phiên bản mới nhất</h2>
+  <div class="download-card">
+    <div class="download-info">
+      <h3>SPD-Kohaku v3.3.8</h3>
+      <p>Dựa trên Shattered Pixel Dungeon v3.3.8</p>
+      <div class="download-meta">
+        <span>Android</span>
+        <span>GPLv3</span>
+        <span>Cập nhật: Tháng 9, 2026</span>
+      </div>
+    </div>
+    <a href="https://github.com/tonn5698-glitch/SPD-Kohaku/releases" class="btn btn-primary" target="_blank">
+      Tải về APK
+    </a>
+  </div>
+</section>
+
+<section id="changelog">
+  <div class="section-label">Cập nhật</div>
+  <h2>Lịch sử phát triển</h2>
+  <ul class="changelog">
+    <li>
+      <div class="version">v3.3.8-indev <span class="date">Tháng 9, 2026</span></div>
+      <h4>Phiên bản hiện tại (Đang phát triển)</h4>
+      <ul>
+        <li>Hệ sprite 4 hướng cho Kohaku</li>
+        <li>Animation drink/food tuỳ chỉnh</li>
+        <li>Monini transform effect</li>
+        <li>RPG dialog system với portrait</li>
+        <li>Configurable speed & action duration</li>
+        <li>Dizzy/debuff walk sprite</li>
+      </ul>
+    </li>
+    <li>
+      <div class="version">v3.3.7 <span class="date">Trước đó</span></div>
+      <h4>Base: Shattered Pixel Dungeon</h4>
+      <ul>
+        <li>Foundation từ upstream SPD</li>
+        <li>6 hero classes (Warrior, Mage, Rogue, Huntress, Duelist, Cleric)</li>
+        <li>Toàn bộ content gốc</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  <p>
+    SPD-Kohaku — Fork từ
+    <a href="https://github.com/00-Evan/shattered-pixel-dungeon" target="_blank">Shattered Pixel Dungeon</a>
+    bởi Evan Debenham.
+    Nhân vật Kohaku © <a href="https://bayachao.com/#/" target="_blank">BAYACHAO</a>.
+  </p>
+  <p style="margin-top:8px;">
+    <a href="https://github.com/tonn5698-glitch/SPD-Kohaku" target="_blank">GitHub</a> ·
+    <a href="./copyright.html">Bản quyền</a> ·
+    <a href="https://tonn5698-glitch.github.io/SPD-Kohaku-Web/">Trang chủ</a>
+  </p>
+</footer>
+
 </body>
 </html>
