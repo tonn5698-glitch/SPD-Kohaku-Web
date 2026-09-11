@@ -276,12 +276,12 @@
   <h2>Phiên bản mới nhất</h2>
   <div class="download-card">
     <div class="download-info">
-      <h3>SPD-Kohaku v3.3.8</h3>
-      <p>Dựa trên Shattered Pixel Dungeon v3.3.8</p>
+      <h3>SPD-Kohaku v4.0.0</h3>
+      <p>Dựa trên Shattered Pixel Dungeon v4.0.0</p>
       <div class="download-meta">
         <span>Android</span>
         <span>GPLv3</span>
-        <span>Cập nhật: Tháng 9, 2026</span>
+        <span>11 Tháng 9, 2026</span>
       </div>
     </div>
     <a href="https://github.com/tonn5698-glitch/SPD-Kohaku/releases" class="btn btn-primary" target="_blank">
@@ -295,8 +295,25 @@
   <h2>Lịch sử phát triển</h2>
   <ul class="changelog">
     <li>
+      <div class="version">v4.0.0 <span class="date">11 Tháng 9, 2026</span></div>
+      <h4>SPD 4.0 Update + Skeleton Bone Explosion</h4>
+      <ul>
+        <li>Merge upstream Shattered Pixel Dungeon v4.0.0</li>
+        <li>Nâng cấp JDK 21, AGP 9.2.0, Gradle 9.5</li>
+        <li><strong>Skeleton Bone Explosion:</strong> 25% volatile spawn, phân tử tối, cảnh báo, nổ theo cấp độ (low/medium/max), drain mechanic, tombstone khi chết</li>
+        <li>Kính hiển thị hiển thị tier volatile (vàng/cam/đỏ)</li>
+        <li><strong>Fix death animation:</strong> flash tint reset mỗi tick, nhanh hơn 50%, post-death transform frames, tombstone heap spawn</li>
+        <li>Fix dizzy attack: dùng sprite dizzy attack thay vì walk</li>
+        <li>Fix attack idle return: onComplete() force idle sau callback</li>
+        <li>Fix random facing on resume: link() override save/restore facing</li>
+        <li>Fix Waterskin: double-heal, quickslot update</li>
+        <li>HP threshold dizzy: 33.4% → 15%</li>
+        <li>StatusPane: dizzy portrait refresh với ToxicGas check</li>
+      </ul>
+    </li>
+    <li>
       <div class="version">v3.3.8-indev <span class="date">Tháng 9, 2026</span></div>
-      <h4>Phiên bản hiện tại (Đang phát triển)</h4>
+      <h4>Phiên bản trước</h4>
       <ul>
         <li>Hệ sprite 4 hướng cho Kohaku</li>
         <li>Animation drink/food tuỳ chỉnh</li>
@@ -304,15 +321,6 @@
         <li>RPG dialog system với portrait</li>
         <li>Configurable speed & action duration</li>
         <li>Dizzy/debuff walk sprite</li>
-      </ul>
-    </li>
-    <li>
-      <div class="version">v3.3.7 <span class="date">Trước đó</span></div>
-      <h4>Base: Shattered Pixel Dungeon</h4>
-      <ul>
-        <li>Foundation từ upstream SPD</li>
-        <li>6 hero classes (Warrior, Mage, Rogue, Huntress, Duelist, Cleric)</li>
-        <li>Toàn bộ content gốc</li>
       </ul>
     </li>
   </ul>
